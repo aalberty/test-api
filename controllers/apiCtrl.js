@@ -1,8 +1,10 @@
 var app = angular.module("myApiCtrl", []);
-app.controller('apiCtrl', function ($scope) {
-    $scope.onClick = onClick;
+app.controller('apiCtrl', function ($scope, $routeParams) {
+    $scope.parrot = parrot;
+    $scope.params = $routeParams;
 
-    function onClick () {
-        console.log("button was clicked");
+    function parrot (message) {
+        console.log(message);
+        return {"success": true, "result": message};
     }
 });
