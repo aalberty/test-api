@@ -1,3 +1,4 @@
 var app = angular.module("myApp", [
-    'myApiCtrl'
+    '/controllers/myApiCtrl',
+    '/routes/apiRoutes'
 ]);
