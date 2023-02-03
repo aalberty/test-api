@@ -1,4 +1,4 @@
-var app = angular.module("myMainCtrl", []);
+var app = angular.module("mainCtrl", []);
 app.controller("mainCtrl", function ($scope){
     $scope.onClick = onClick;
 

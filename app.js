@@ -1,5 +1,5 @@
 var app = angular.module("myApp", [
-    '/controllers/myApiCtrl',
     '/controllers/apiCtrl',
+    '/controllers/mainCtrl',
     '/routes/apiRoutes'
 ]);

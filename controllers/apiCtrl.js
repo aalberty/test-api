@@ -1,4 +1,4 @@
-var app = angular.module("myApiCtrl", []);
+var app = angular.module("apiCtrl", ['ngRoute']);
 app.controller('apiCtrl', function ($scope, $routeParams) {
     $scope.parrot = parrot;
     $scope.params = $routeParams;
