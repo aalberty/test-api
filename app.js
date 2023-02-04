@@ -1,7 +1,6 @@
 var app = angular.module("myApp", [
     '/controllers/apiCtrl',
-    '/controllers/mainCtrl',
-    '/routes/apiRoutes'
+    '/controllers/mainCtrl'
 ]);
 
 app.config(['$routeProvider'], function () {
