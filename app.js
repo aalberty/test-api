@@ -1,8 +1,8 @@
 var app = angular.module("myApp", ['ngResource']);
 
 app.controller('mainCtrl', function ($scope) {
-    $scope.onClick() = onClick;
-    $scope.getReq() = getReq;
+    $scope.onClick = onClick;
+    $scope.getReq = getReq;
     $scope.params = {
         parm1: "",
         parm2: ""
