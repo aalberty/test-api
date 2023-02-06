@@ -75,8 +75,8 @@ app.controller('mainCtrl', function ($scope, $resource) {
     }
 });
 
-app.controller('endpointCtrl', function ($scope, $location) {
-    let params = $location.search();
+app.controller('endpointCtrl', function ($scope, $routeParams) {
+    let params = $routeParams;
     console.log("url params: ", params);
 });
 
