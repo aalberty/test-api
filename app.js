@@ -12,8 +12,8 @@ app.controller('mainCtrl', function ($scope) {
     };
 
     function getReq () {
-        let parm1 = $scope.parm1;
-        let parm2 = $scope.parm2;
+        let parm1 = $scope.params.parm1;
+        let parm2 = $scope.params.parm2;
         $scope.res = {data: {}, success: false};
         $scope.res.success = true;
         $scope.res.data = {parm1: parm1, parm2: parm2};
