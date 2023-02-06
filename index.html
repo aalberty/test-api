@@ -8,13 +8,16 @@
             <input type="text" id="parm2-input" ng-model="params.parm2"/>
             <button type="button" ng-click="getReq()">Make API call</button>
 
-            <pre>API res: {{res.data | json}}</pre>
+            <div class="api-response" ng-view></div>
+            
         </div>
 
     </body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.8.3/angular-resource.min.js"></script>
+
     <script src="app.js"></script>
 
 

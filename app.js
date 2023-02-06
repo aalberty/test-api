@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ['ngResource']);
+var app = angular.module("myApp", ['ngResource', 'ngRoute']);
 
 app.controller('mainCtrl', function ($scope, $resource) {
     $scope.getReq = getReq;
@@ -12,21 +12,28 @@ app.controller('mainCtrl', function ($scope, $resource) {
         data: {}
     };
 
-    var restSvc = $resource("./getSample/:parm1/:parm2", 
-    
-        {
-            parm1: "@parm1",
-            parm2: "@parm2"
-        },
-
-        {
+    var restSvc = $resource(null, null,
+         {
             "getSample": {
+                url: "./sampleEndpoint?parm1=:parm1&parm2=:parm2",
                 method: "get",
-                isArray: "false"
+                isArray: "false",
+                params: {
+                    parm1: "@parm1",
+                    parm2: "@parm2"
+                }
             }    
         }
     );
 
+    function getSample (parm1, parm2) {
+        return restSvc.getSample(
+                {
+                    parm1: parm1,
+                    parm2: parm2
+                }
+            ).$promise;
+    } 
 
     function getReq () {
         let parm1 = $scope.params.parm1;
@@ -34,16 +41,15 @@ app.controller('mainCtrl', function ($scope, $resource) {
         // $scope.res.success = true;
         // $scope.res.data = {parm1: parm1, parm2: parm2};
 
-        let prom = restSvc.getSample(
-            {
-                parm1: $scope.params.parm1,
-                parm2: $scope.params.parm2
-            }
-        ).$promise;
+        let prom = getSample(
+                $scope.params.parm1, 
+                $scope.params.parm2
+            );
     
         prom.then(
             
             function (res) {
+                console.log("response: ", res);
                 let success = false;
                 let errorMessage = "";
                 let data = "";
@@ -60,14 +66,29 @@ app.controller('mainCtrl', function ($scope, $resource) {
                 $scope.res.errorMessage = errorMessage;
                 $scope.res.data = data;
             },
+
             function (error) {
-                $scope.res.success = false;
-                $scope.res.errorMessage = error;
-                $scope.res.data = {};
-            }
+                console.log("API error: ", error);
+            } 
         );
 
     }
+});
+
+app.controller('endpointCtrl', function ($scope, $location) {
+    let params = $location.search();
+    console.log("url params: ", params);
+});
+
+app.config(function ($routeProvider) {
+    $routeProvider
+    .when('/sampleEndpoint',{
+        templateUrl: "apiRes.template.html",
+        controller: 'endpointCtrl'
+    })
+    .otherwise({
+        template: ""
+    });
 });
 
 
