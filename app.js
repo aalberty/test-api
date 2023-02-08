@@ -96,8 +96,8 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
 }]);
 
 app.controller('endpointCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-    let params = $routeParams;
-    console.log("url params: ", params);
+    $scope.params = $routeParams;
+    console.log("url params: ", $scope.params);
 }]);
 
 
