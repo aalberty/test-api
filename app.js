@@ -18,7 +18,7 @@ app.config( function ($routeProvider) {
     });
 });
 
-app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
+app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource, $locationProvider) {
     $scope.getReq = getReq;
     $scope.params = {
         parm1: "",
@@ -92,6 +92,8 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
         );
 
     }
+
+    $locationProvider.html5Mode(true);
 }]);
 
 app.controller('endpointCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
