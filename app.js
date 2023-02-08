@@ -15,7 +15,7 @@ app.controller('mainCtrl', function ($scope, $resource) {
     var restSvc = $resource(null, null,
          {
             "getSample": {
-                url: "/sampleEndpoint/:parm1/:parm2",
+                url: "#!/sampleEndpoint/:parm1/:parm2",
                 method: "get",
                 isArray: "false",
                 params: {
@@ -81,7 +81,7 @@ app.controller('endpointCtrl', function ($scope, $routeParams) {
     console.log("url params: ", params);
 });
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function config ($routeProvider) {
     $routeProvider
 
     .when('/sampleEndpoint/:parm1/:parm2',{
