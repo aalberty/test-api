@@ -1,0 +1,9 @@
+{
+    "name": "sampleData",
+    "fileType": "json",
+    "data": {
+        "first": 1,
+        "second": true,
+        "third": false
+    }
+}

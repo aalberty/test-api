@@ -4,12 +4,12 @@ app.config( function ($routeProvider) {
     $routeProvider
 
     .when('/sampleEndpoint', {
-        templateUrl: "apiRes.template.html",
+        templateUrl: "sampleEndpoint.html",
         controller: "endpointCtrl"
     })
 
-    .when('/sampleEndpoint/:parm1/:parm2',{
-        templateUrl: "apiRes.template.html",
+    .when('/withParams',{
+        templateUrl: "params.html",
         controller: 'endpointCtrl'
     })
 
@@ -33,7 +33,7 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
     var restSvc = $resource(null, null,
          {
             "getSample": {
-                url: "/sampleEndpoint/:parm1/:parm2",
+                url: "/sampleEndpoint/withParams?parm1=:parm1&parm2=:parm2",
                 method: "get",
                 isArray: "false",
                 params: {
