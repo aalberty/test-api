@@ -11,11 +11,8 @@ app.config( function ($routeProvider, $locationProvider) {
     .when('/sampleEndpoint/withParams',{
         templateUrl: "params.html",
         controller: 'endpointCtrl'
-    })
-
-    .otherwise({
-        template: ""
     });
+
     $locationProvider.html5Mode(true);
 });
 
