@@ -1,6 +1,6 @@
 var app = angular.module("myApp", ['ngResource', 'ngRoute']);
 
-app.controller('mainCtrl', function ($scope, $resource) {
+app.controller('mainCtrl',['ngRoute', function ($scope, $resource) {
     $scope.getReq = getReq;
     $scope.params = {
         parm1: "",
@@ -74,12 +74,12 @@ app.controller('mainCtrl', function ($scope, $resource) {
         );
 
     }
-});
+}]);
 
-app.controller('endpointCtrl', function ($scope, $routeParams) {
+app.controller('endpointCtrl', ['ngRoute', function ($scope, $routeParams) {
     let params = $routeParams;
     console.log("url params: ", params);
-});
+}]);
 
 app.config(['$routeProvider', function config ($routeProvider) {
     $routeProvider
