@@ -83,10 +83,17 @@ app.controller('endpointCtrl', function ($scope, $routeParams) {
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
+
     .when('/sampleEndpoint/:parm1/:parm2',{
         templateUrl: "apiRes.template.html",
         controller: 'endpointCtrl'
     })
+
+    .when('/sampleEndpoint', {
+        templateUrl: "apiRes.template.html",
+        controller: "endpointCtrl"
+    })
+
     .otherwise({
         template: ""
     });
