@@ -28,7 +28,7 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
         data: {}
     };
 
-    var restSvc = $resource(null, null,
+    var restSvc = $resource("/", {},
          {
             "getSample": {
                 url: "/sampleEndpoint/withParams",
