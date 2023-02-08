@@ -8,7 +8,7 @@ app.config( function ($routeProvider, $locationProvider) {
         controller: "endpointCtrl"
     })
 
-    .when('/withParams',{
+    .when('/sampleEndpoint/withParams',{
         templateUrl: "params.html",
         controller: 'endpointCtrl'
     })
