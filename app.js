@@ -33,7 +33,7 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
     var restSvc = $resource(null, null,
          {
             "getSample": {
-                url: "#!/sampleEndpoint/:parm1/:parm2",
+                url: "/sampleEndpoint/:parm1/:parm2",
                 method: "get",
                 isArray: "false",
                 params: {
