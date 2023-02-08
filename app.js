@@ -1,6 +1,6 @@
 var app = angular.module("myApp", ['ngResource', 'ngRoute']);
 
-app.config( function ($routeProvider) {
+app.config( function ($routeProvider, $locationProvider) {
     $routeProvider
 
     .when('/sampleEndpoint', {
@@ -16,9 +16,10 @@ app.config( function ($routeProvider) {
     .otherwise({
         template: ""
     });
+    $locationProvider.html5Mode(true);
 });
 
-app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource, $locationProvider) {
+app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
     $scope.getReq = getReq;
     $scope.params = {
         parm1: "",
@@ -92,8 +93,6 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource, $
         );
 
     }
-
-    $locationProvider.html5Mode(true);
 }]);
 
 app.controller('endpointCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
