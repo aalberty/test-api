@@ -33,11 +33,7 @@ app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
             "getSample": {
                 url: "/sampleEndpoint/withParams",
                 method: "get",
-                isArray: "false",
-                params: {
-                    parm1: "@parm1",
-                    parm2: "@parm2"
-                }
+                isArray: "false"
             }    
         }
     );
