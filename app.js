@@ -1,6 +1,24 @@
 var app = angular.module("myApp", ['ngResource', 'ngRoute']);
 
-app.controller('mainCtrl',['ngRoute', function ($scope, $resource) {
+app.config( function ($routeProvider) {
+    $routeProvider
+
+    .when('/sampleEndpoint', {
+        templateUrl: "apiRes.template.html",
+        controller: "endpointCtrl"
+    })
+
+    .when('/sampleEndpoint/:parm1/:parm2',{
+        templateUrl: "apiRes.template.html",
+        controller: 'endpointCtrl'
+    })
+
+    .otherwise({
+        template: ""
+    });
+});
+
+app.controller('mainCtrl',['$scope', '$resource', function ($scope, $resource) {
     $scope.getReq = getReq;
     $scope.params = {
         parm1: "",
@@ -76,27 +94,11 @@ app.controller('mainCtrl',['ngRoute', function ($scope, $resource) {
     }
 }]);
 
-app.controller('endpointCtrl', ['ngRoute', function ($scope, $routeParams) {
+app.controller('endpointCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
     let params = $routeParams;
     console.log("url params: ", params);
 }]);
 
-app.config(['$routeProvider', function config ($routeProvider) {
-    $routeProvider
 
-    .when('/sampleEndpoint/:parm1/:parm2',{
-        templateUrl: "apiRes.template.html",
-        controller: 'endpointCtrl'
-    })
-
-    .when('/sampleEndpoint', {
-        templateUrl: "apiRes.template.html",
-        controller: "endpointCtrl"
-    })
-
-    .otherwise({
-        template: ""
-    });
-}]);
 
 
